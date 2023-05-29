@@ -1,0 +1,7 @@
+.bar
+{
+    width: 100%;
+    height: 4rem;
+    background: var(--green);
+    border-radius: 12px;
+}

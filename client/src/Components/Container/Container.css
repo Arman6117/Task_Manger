@@ -1,0 +1,37 @@
+.main {
+  width: 270px;
+  height: 480px;
+  background: #fff8eb;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-image: radial-gradient(#000000 0.5px, #fff8eb 0.5px);
+  background-size: 15px 15px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  line-height: 20px;
+}
+.title > :nth-child(1) {
+  font-size: 0.7rem;
+  display: block;
+  font-weight: 600;
+}
+.title > :nth-child(2) {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.tasks {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 26rem;
+  /* background: red; */
+  margin-top: 12px;
+  font-weight: 600;
+  padding: 10px 9px 0px 0px;
+  overflow: hidden;
+}
