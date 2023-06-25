@@ -7,11 +7,17 @@
     display: flex;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
-  }
-  .mood
-  {
-    transform: scale(0.1);
-    position: absolute;
-    right: 79px;
-  }
   
+    span
+    {
+      font-size: 0.7rem;
+      font-weight: 700;
+      position: relative;
+      left: 5%;
+    }
+  .mood
+  {transform: scale(0.12);
+    position: absolute;
+    right: 96px;
+  }
+}
