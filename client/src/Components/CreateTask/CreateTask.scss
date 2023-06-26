@@ -1,0 +1,32 @@
+.createTask {
+  width: 100%;
+  height: 80%;
+  top: 20%;
+  background: var(--l-green);
+  display: flex;
+  position: absolute;
+  left: 0%;
+  justify-content: center;
+
+  .h-img {
+    top: -2rem;
+    transform: scale(0.3);
+  }
+  .n-img {
+    top: -2.4rem;
+    transform: scale(0.3);
+  }
+  .d-img {
+    top: -1rem;
+    transform: scale(0.34);
+    left: -0.5rem;
+  }
+  .a-img {
+    @extend .d-img;
+    top: -0.5rem;
+  }
+  .img
+  {
+    visibility: hidden;
+  }
+}
