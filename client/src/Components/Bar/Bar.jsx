@@ -2,7 +2,7 @@ import React from 'react'
 import './Bar.scss'
 import '../../index.css'
 import crt from "../../Images/create.png"
-import CreateTask from '../CreateTask/CreateTask'
+
 // import './styles.scss'
 const Bar = () => {
   const showCreate = () =>

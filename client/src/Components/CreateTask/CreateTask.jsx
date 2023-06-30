@@ -8,21 +8,25 @@ import Diss from "../../Images/mascot-diss.png";
 import Normal from "../../Images/mascot-normal.png";
 import Check from "../../Images/check.png";
 
-const CreateTask = () => {
+const CreateTask = (props) => {
   const [selectedImg, setSelectedImg] = useState(Happy);
+  const [inputValue, setInputValue] = useState("");
   const [Id, setID] = useState("");
+  const [background, setBackground] = useState("");
   let name;
+
   const handleClick = (e) => {
     const create = document.querySelector(".createTask");
     const txt = document.querySelector(".u_txt");
-    const thumb = document.querySelector(".s_thumb");
     name = e.target.getAttribute("name");
+    const thumb = document.querySelector(".s_thumb");
 
     switch (name) {
       case "lazy":
         create.style.background = "var(--l-green)";
         txt.innerHTML = "Be lazy";
         setSelectedImg(Happy);
+        setBackground("var(--l-green)");
         setID("h-img");
         thumb.style.left = "0";
         break;
@@ -32,6 +36,8 @@ const CreateTask = () => {
         txt.innerHTML = "Somewhat";
         setSelectedImg(Normal);
         setID("n-img");
+        setBackground("var(--blue)");
+
         thumb.style.left = "3rem";
         break;
 
@@ -40,6 +46,8 @@ const CreateTask = () => {
         txt.innerHTML = "Very Very";
         setSelectedImg(Diss);
         setID("d-img");
+        setBackground("var(--purple)");
+
         thumb.style.left = "6rem";
 
         break;
@@ -49,6 +57,8 @@ const CreateTask = () => {
         txt.innerHTML = "HURRY!!!";
         setSelectedImg(Angry);
         setID("a-img");
+        setBackground("var(--red)");
+
         thumb.style.left = "9rem";
 
         break;
@@ -63,11 +73,29 @@ const CreateTask = () => {
         break;
     }
   };
-  const removeCreate = ()=>
-  {
-    const create = document.querySelector('.createTask')
-    create.classList.remove('active')
-  }
+
+  const removeCreate = () => {
+    const create = document.querySelector(".createTask");
+    create.classList.remove("active");
+  };
+  const reset = () => {
+    document.querySelector(".createTask").style.background = "var(--l-green)";
+    setID("h-img");
+    setSelectedImg(Happy);
+    document.querySelector(".s_thumb").style.left = "0";
+    document.querySelector(".u_txt").innerHTML = "Be lazy";
+    removeCreate();
+    setInputValue("");
+    setBackground(null);
+    setSelectedImg(Happy);
+  };
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
+  };
+  const handleSubmit = () => {
+    props.create(inputValue, background, selectedImg);
+    reset();
+  };
 
   return (
     <>
@@ -95,15 +123,21 @@ const CreateTask = () => {
         </div>
         <div className="input  absolute">
           <motion.input
-          initial={{width:"0"}}
-          whileInView={{width:"16rem"}}
+            initial={{ width: "0" }}
+            whileInView={{ width: "16rem" }}
             className="task_input w-64 h-8 rounded-full left-2.5 outline-none pl-5 border-2 border-black font-bold color-black"
             placeholder="Add Task"
+            value={inputValue}
+            onChange={handleChange}
           />
-          <button className="t_btn absolute left-52" type="submit" onClick={removeCreate}>
+          <button
+            className="t_btn absolute left-52"
+            type="submit"
+            onClick={handleSubmit}
+          >
             <motion.img
-            initial={{width:'0'}}
-            whileInView={{width:'55px'}}
+              initial={{ width: "0" }}
+              whileInView={{ width: "55px" }}
               alt=""
               src={Check}
               className="btn_img"

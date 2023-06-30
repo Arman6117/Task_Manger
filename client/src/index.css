@@ -24,6 +24,12 @@ overflow: hidden;
 background-image: radial-gradient(#2dc264 0.65px, var(--yellow) 0.65px);
 background-size: 13px 13px;
 font-family: 'Quicksand', sans-serif;
+
+
+}
+body::-webkit-scrollbar {
+  display: none;
+ 
 }
 .main {
     width: 270px;
@@ -52,14 +58,23 @@ font-family: 'Quicksand', sans-serif;
     font-weight: 600;
   }
   .tasks {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin: 16px;
     height: 26rem;
     /* background: red; */
-    margin-top: 12px;
+    /* margin-top: 12px; */
     font-weight: 600;
-    padding: 10px 9px 0px 0px;
-    overflow: hidden;
+    padding:0 11px 0px 0px;
+    overflow: scroll;
+    /* gap: 1rem; */
+     left: -16px;
+
+    &::-webkit-scrollbar {
+      display: none;
+     
+    }
   }
   
